@@ -9,8 +9,8 @@ def view_get_all_users(users):
     return jsonify({'message': 'Lista de todos os usuários', 'data': users})
 
 
-def view_login_user():
-    return jsonify({'message': 'Login bem-sucedido!'})
+def view_login_user(access_token):
+    return jsonify({'message': 'Login bem-sucedido!', 'access_token': access_token})
 
 
 def view_delete_user():
