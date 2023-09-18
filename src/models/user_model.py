@@ -30,7 +30,7 @@ class UserModel:
             while 'LastEvaluatedKey' in response:
                 response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
                 result.extend(response['Items'])
-            return True
+            return result
         except Exception as error:
             print(str(error))
             return False
