@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
-from flask_jwt_extended import create_access_token
 from src.models.user_model import UserModel
 from src.views.user_view import view_login_user
+from src.controllers.jwt_controller import generate_token
 
 login_bp = Blueprint("login", __name__)
 
@@ -21,7 +21,7 @@ def login():
 
         users = UserModel.login_user(email, senha)
         if users:
-            access_token = create_access_token(identity=email)
+            access_token = generate_token(email)
             return view_login_user(access_token)
         else:
             return jsonify({"error": "Login falhou. Verifique suas credenciais"}), 401
