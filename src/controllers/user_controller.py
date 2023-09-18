@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from src.models.user_model import UserModel
 from src.views.user_view import view_create_user, view_get_all_users, view_delete_user
+from src.controllers.jwt_controller import token_required
 
 user_bp = Blueprint("user", __name__)
 
@@ -28,6 +29,7 @@ def create_user():
 
 
 @user_bp.route("/get-users", methods=["GET"])
+@token_required
 def get_users():
     try:
         users = UserModel.get_all_users()
@@ -37,6 +39,7 @@ def get_users():
 
 
 @user_bp.route("/delete-user/<user_id>", methods=["DELETE"])
+@token_required
 def delete_user(user_id):
     try:
         UserModel.delete_user(user_id)
