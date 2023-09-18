@@ -13,6 +13,7 @@ disable=
         R0903, # too-few-public-methods
         W0621, # redefined-outer-name
         W0612, # unused variable
+        R1705, # unecessary else
 
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
