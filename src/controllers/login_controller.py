@@ -23,5 +23,5 @@ def login():
             return view_login_user()
         else:
             return jsonify({"error": "Login falhou. Verifique suas credenciais"}), 401
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    except Exception as error:
+        return jsonify({"error": str(error)}), 500

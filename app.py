@@ -2,4 +2,4 @@ from routes import create_app
 
 if __name__ == "__main__":
     app = create_app()
-    app.run(Debug=True)
+    app.run()
